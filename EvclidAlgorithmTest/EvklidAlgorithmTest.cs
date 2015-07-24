@@ -11,32 +11,37 @@ namespace EvclidAlgorithmTest
     [TestFixture]
     public class EvklidAlgorithmTest
     {
-        [TestCase(78, 294, 570, 36, Result = 6)]
-        [Test]
-        public int FindGCD(int a, int b,int c, int d)
-        {
-            return EvclidAlgorithm.FindGCD(a, b, c, d);
-        }
 
         [TestCase(18, 30, Result = 6)]
+        [TestCase(0,0, Result = 0)]
+        [TestCase(0,1, Result = 1)]
         [Test]
-        public int FindGCDForTwoNumbers(int a, int b)
+        public int FindGCDByEvclidAlgorithmTest(int number1, int number2)
         {
-            return EvclidAlgorithm.FindGCD(a, b);
-        }
-
-        [TestCase(18, 30, Result = 6)]
-        [Test]
-        public int FindGCDByStaine(int a, int b)
-        {
-            return EvclidAlgorithm.GCD(a, b);
+            return EvclidAlgorithm.FindGCDByEvclidAlgorithm(number1, number2);
         }
 
         [TestCase(78, 294, 570, 36, Result = 6)]
         [Test]
-        public int FindGCDBySSS(int a, int b, int c, int d)
+        public int FindGCDByEvclidAlgorithmTest(params int[] numbers)
         {
-            return EvclidAlgorithm.GCD(a, b, c, d);
+            return EvclidAlgorithm.FindGCDByEvclidAlgorithm(numbers);
+        }
+
+        [TestCase(18, 30, Result = 6)]
+        [TestCase(0, 0, Result = 0)]
+        [TestCase(0, 1, Result = 1)]
+        [Test]
+        public int FindGCDByStaineAlgorithmTest(int number1, int number2)
+        {
+            return EvclidAlgorithm.FindGCDByStaineAlgorithm(number1, number2);
+        }
+
+        [TestCase(78, 294, 570, 36, Result = 6)]
+        [Test]
+        public int FindGCDByStaineAlgorithmTest(params int[] numbers)
+        {
+            return EvclidAlgorithm.FindGCDByStaineAlgorithm(numbers);
         }
     }
 }
